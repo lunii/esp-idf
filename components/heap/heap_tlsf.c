@@ -337,9 +337,12 @@ static inline __attribute__((__always_inline__)) block_header_t* block_absorb(bl
 /* Merge a just-freed block with an adjacent previous free block. */
 static inline __attribute__((__always_inline__)) block_header_t* block_merge_prev(control_t* control, block_header_t* block)
 {
+	if (!block) return block;
+
 	if (block_is_prev_free(block))
 	{
 		block_header_t* prev = block_prev(block);
+		if (!prev) return block;
 		tlsf_assert(prev && "prev physical block can't be null");
 		tlsf_assert(block_is_free(prev) && "prev block is not free though marked as such");
 		block_remove(control, prev);
@@ -962,8 +965,10 @@ void tlsf_free(tlsf_t tlsf, void* ptr)
 	{
 		control_t* control = tlsf_cast(control_t*, tlsf);
 		block_header_t* block = block_from_ptr(ptr);
+		if (!block) return;
 		tlsf_assert(!block_is_free(block) && "block already marked as free");
 		block_mark_as_free(block);
+		if (!block) return;
 		block = block_merge_prev(control, block);
 		block = block_merge_next(control, block);
 		block_insert(control, block);

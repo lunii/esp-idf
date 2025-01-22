@@ -510,16 +510,27 @@ esp_err_t sdmmc_read_sectors_dma(sdmmc_card_t* card, void* dst,
     } else {
         cmd.arg = start_block * block_size;
     }
-    esp_err_t err = sdmmc_send_cmd(card, &cmd);
-    if (err != ESP_OK) {
-        ESP_LOGE(TAG, "%s: sdmmc_send_cmd returned 0x%x", __func__, err);
-        return err;
+
+    int retry = 20;
+    while (true) {
+        esp_err_t err = sdmmc_send_cmd(card, &cmd);
+        if (err != ESP_OK) {
+            ESP_LOGE(TAG, "%s: sdmmc_send_cmd returned 0x%x", __func__, err);
+            if (retry > 0) {
+                --retry;
+                continue;
+            }
+            return err;
+        } else {
+            break;
+        }
     }
+
     uint32_t status = 0;
     size_t count = 0;
     while (!host_is_spi(card) && !(status & MMC_R1_READY_FOR_DATA)) {
         // TODO: add some timeout here
-        err = sdmmc_send_cmd_send_status(card, &status);
+        esp_err_t err = sdmmc_send_cmd_send_status(card, &status);
         if (err != ESP_OK) {
             return err;
         }

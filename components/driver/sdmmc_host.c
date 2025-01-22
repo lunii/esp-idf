@@ -245,7 +245,7 @@ esp_err_t sdmmc_host_set_card_clk(int slot, uint32_t freq_khz)
     sdmmc_host_clock_update_command(slot);
 
     // set data timeout
-    const uint32_t data_timeout_ms = 100;
+    const uint32_t data_timeout_ms = 1000;
     uint32_t data_timeout_cycles = data_timeout_ms * freq_khz;
     const uint32_t data_timeout_cycles_max = 0xffffff;
     if (data_timeout_cycles > data_timeout_cycles_max) {

@@ -783,6 +783,9 @@ tBTA_AV_EVT bta_av_proc_meta_cmd(tAVRC_RESPONSE  *p_rc_rsp, tBTA_AV_RC_MSG *p_ms
             break;
         default:
             APPL_TRACE_WARNING("%s unhandled RC vendor PDU: 0x%x", __FUNCTION__, pdu);
+            evt = 0;
+            p_rc_rsp->rsp.status = AVRC_STS_BAD_CMD;
+            *p_ctype = AVRC_RSP_NOT_IMPL;
             break;
         }
     }

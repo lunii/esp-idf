@@ -87,6 +87,8 @@ cleanup:
     return err;
 }
 
+bool sdcard_has_been_formated = false;
+
 static esp_err_t mount_to_vfs_fat(const esp_vfs_fat_mount_config_t *mount_config, sdmmc_card_t *card, uint8_t pdrv,
                                   const char *base_path)
 {
@@ -119,6 +121,8 @@ static esp_err_t mount_to_vfs_fat(const esp_vfs_fat_mount_config_t *mount_config
         if (err != ESP_OK) {
             goto fail;
         }
+
+        sdcard_has_been_formated = true;
 
         ESP_LOGW(TAG, "mounting again");
         res = f_mount(fs, drv, 0);

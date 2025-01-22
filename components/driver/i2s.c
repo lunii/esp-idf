@@ -1961,7 +1961,7 @@ esp_err_t i2s_driver_install(i2s_port_t i2s_num, const i2s_config_t *i2s_config,
     ESP_RETURN_ON_FALSE((i2s_config->dma_buf_len >= 8 && i2s_config->dma_buf_len <= 1024), ESP_ERR_INVALID_ARG, TAG, "I2S buffer length at most 1024 and more than 8");
 
     /* Step 2: Allocate driver object and register to platform */
-    i2s_obj_t *pre_alloc_i2s_obj = calloc(1, sizeof(i2s_obj_t));
+    i2s_obj_t *pre_alloc_i2s_obj = heap_caps_malloc(sizeof(i2s_obj_t), MALLOC_CAP_INTERNAL);
     ESP_RETURN_ON_FALSE(pre_alloc_i2s_obj, ESP_ERR_NO_MEM, TAG, "no mem for I2S driver");
     ret = i2s_priv_register_object(pre_alloc_i2s_obj, i2s_num);
     if (ret != ESP_OK) {

@@ -87,7 +87,7 @@ static inline __attribute__((__always_inline__)) int block_is_last(const block_h
 
 static inline __attribute__((__always_inline__)) int block_is_free(const block_header_t* block)
 {
-	return tlsf_cast(int, block->size & block_header_free_bit);
+	return block ? tlsf_cast(int, block->size & block_header_free_bit) : 0;
 }
 
 static inline __attribute__((__always_inline__)) void block_set_free(block_header_t* block)
