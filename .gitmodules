@@ -25,15 +25,18 @@
 
 [submodule "components/esptool_py/esptool"]
 	path = components/esptool_py/esptool
-	url = ../../espressif/esptool.git
+	url = https://github.com/espressif/esptool.git
+	shallow = true
 
 [submodule "components/bt/controller/lib_esp32"]
 	path = components/bt/controller/lib_esp32
-        url = ../../espressif/esp32-bt-lib.git
+    url = https://github.com/espressif/esp32-bt-lib.git
+	shallow = true
 
 [submodule "components/bootloader/subproject/components/micro-ecc/micro-ecc"]
 	path = components/bootloader/subproject/components/micro-ecc/micro-ecc
-	url = ../../kmackay/micro-ecc.git
+	url = https://github.com/kmackay/micro-ecc.git
+	shallow = true
 	sbom-version = 1.1
 	sbom-cpe = cpe:2.3:a:micro-ecc_project:micro-ecc:{}:*:*:*:*:*:*:*
 	sbom-supplier = Person: Ken MacKay
@@ -43,19 +46,23 @@
 
 [submodule "components/coap/libcoap"]
 	path = components/coap/libcoap
-	url = ../../obgm/libcoap.git
+	url = https://github.com/obgm/libcoap.git
+	shallow = true
 
 [submodule "components/nghttp/nghttp2"]
 	path = components/nghttp/nghttp2
-	url = ../../nghttp2/nghttp2.git
+	url = https://github.com/nghttp2/nghttp2.git
+	shallow = true
 
 [submodule "components/libsodium/libsodium"]
 	path = components/libsodium/libsodium
-	url = ../../jedisct1/libsodium.git
+	url = https://github.com/jedisct1/libsodium.git
+	shallow = true
 
 [submodule "components/spiffs/spiffs"]
 	path = components/spiffs/spiffs
-	url = ../../pellepl/spiffs.git
+	url = https://github.com/pellepl/spiffs.git
+	shallow = true
 	sbom-version = 0.2-255-g0dbb3f71c5f6
 	sbom-supplier = Person: Peter Andersson
 	sbom-url = https://github.com/pellepl/spiffs
@@ -64,7 +71,8 @@
 
 [submodule "components/json/cJSON"]
 	path = components/json/cJSON
-	url = ../../DaveGamble/cJSON.git
+	url = https://github.com/DaveGamble/cJSON.git
+	shallow = true
 	sbom-version = 1.7.17
 	sbom-cpe = cpe:2.3:a:cjson_project:cjson:{}:*:*:*:*:*:*:*
 	sbom-supplier = Person: Dave Gamble
@@ -74,27 +82,33 @@
 
 [submodule "components/mbedtls/mbedtls"]
 	path = components/mbedtls/mbedtls
-	url = ../../espressif/mbedtls.git
+	url = https://github.com/espressif/mbedtls.git
+	shallow = true
 
 [submodule "components/asio/asio"]
 	path = components/asio/asio
-	url = ../../espressif/asio.git
+	url = https://github.com/espressif/asio.git
+	shallow = true
 
 [submodule "components/expat/expat"]
 	path = components/expat/expat
-	url = ../../libexpat/libexpat.git
+	url = https://github.com/libexpat/libexpat.git
+	shallow = true
 
 [submodule "components/lwip/lwip"]
 	path = components/lwip/lwip
-	url = ../../espressif/esp-lwip.git
+	url = https://github.com/espressif/esp-lwip.git
+	shallow = true
 
 [submodule "components/mqtt/esp-mqtt"]
 	path = components/mqtt/esp-mqtt
-	url = ../../espressif/esp-mqtt.git
+	url = https://github.com/espressif/esp-mqtt.git
+	shallow = true
 
 [submodule "components/protobuf-c/protobuf-c"]
 	path = components/protobuf-c/protobuf-c
-	url = ../../protobuf-c/protobuf-c.git
+	url = https://github.com/protobuf-c/protobuf-c.git
+	shallow = true
 	sbom-version = 1.4.1
 	sbom-cpe = cpe:2.3:a:protobuf-c_project:protobuf-c:{}:*:*:*:*:*:*:*
 	sbom-supplier = Organization: protobuf-c community <https://groups.google.com/g/protobuf-c>
@@ -104,7 +118,8 @@
 
 [submodule "components/unity/unity"]
 	path = components/unity/unity
-	url = ../../ThrowTheSwitch/Unity.git
+	url = https://github.com/ThrowTheSwitch/Unity.git
+	shallow = true
 	sbom-version = v2.4.3-51-g7d2bf62b7e6a
 	sbom-supplier = Organization: ThrowTheSwitch community <http://www.throwtheswitch.org>
 	sbom-url = https://github.com/ThrowTheSwitch/Unity
@@ -113,31 +128,38 @@
 
 [submodule "examples/build_system/cmake/import_lib/main/lib/tinyxml2"]
 	path = examples/build_system/cmake/import_lib/main/lib/tinyxml2
-	url = ../../leethomason/tinyxml2.git
+	url = https://github.com/leethomason/tinyxml2.git
+	shallow = true
 
 [submodule "components/bt/host/nimble/nimble"]
 	path = components/bt/host/nimble/nimble
-	url = ../../espressif/esp-nimble.git
+	url = https://github.com/espressif/esp-nimble.git
+	shallow = true
 
 [submodule "components/cbor/tinycbor"]
 	path = components/cbor/tinycbor
-	url = ../../intel/tinycbor.git
+	url = https://github.com/intel/tinycbor.git
+	shallow = true
 
 [submodule "components/esp_wifi/lib"]
 	path = components/esp_wifi/lib
-	url = ../../espressif/esp32-wifi-lib.git
+	url = https://github.com/espressif/esp32-wifi-lib.git
+	shallow = true
 
 [submodule "components/tinyusb/tinyusb"]
 	path = components/tinyusb/tinyusb
-	url = ../../espressif/tinyusb.git
+	url = https://github.com/espressif/tinyusb.git
+	shallow = true
 
 [submodule "examples/peripherals/secure_element/atecc608_ecdsa/components/esp-cryptoauthlib"]
 	path = examples/peripherals/secure_element/atecc608_ecdsa/components/esp-cryptoauthlib
-	url = ../../espressif/esp-cryptoauthlib.git
+	url = https://github.com/espressif/esp-cryptoauthlib.git
+	shallow = true
 
 [submodule "components/cmock/CMock"]
 	path = components/cmock/CMock
-	url = ../../ThrowTheSwitch/CMock.git
+	url = https://github.com/ThrowTheSwitch/CMock.git
+	shallow = true
 	sbom-version = v2.5.2-2-geeecc49ce8af
 	sbom-supplier = Organization: ThrowTheSwitch community <http://www.throwtheswitch.org>
 	sbom-url = https://github.com/ThrowTheSwitch/CMock
@@ -146,20 +168,25 @@
 
 [submodule "components/openthread/openthread"]
 	path = components/openthread/openthread
-	url = ../../espressif/openthread.git
+	url = https://github.com/espressif/openthread.git
+	shallow = true
 
 [submodule "components/bt/controller/lib_esp32c3_family"]
 	path = components/bt/controller/lib_esp32c3_family
-	url = ../../espressif/esp32c3-bt-lib.git
+	url = https://github.com/espressif/esp32c3-bt-lib.git
+	shallow = true
 
 [submodule "components/esp_phy/lib"]
 	path = components/esp_phy/lib
-	url = ../../espressif/esp-phy-lib.git
+	url = https://github.com/espressif/esp-phy-lib.git
+	shallow = true
 
 [submodule "components/openthread/lib"]
 	path = components/openthread/lib
-	url = ../../espressif/esp-thread-lib.git
+	url = https://github.com/espressif/esp-thread-lib.git
+	shallow = true
 
 [submodule "components/ieee802154/lib"]
 	path = components/ieee802154/lib
-	url = ../../espressif/esp-ieee802154-lib.git
+	url = https://github.com/espressif/esp-ieee802154-lib.git
+	shallow = true
