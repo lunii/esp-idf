@@ -713,6 +713,7 @@ void bta_av_co_audio_setconfig(tBTA_AV_HNDL hndl, tBTA_AV_CODEC codec_type,
     UINT8 category = A2D_SUCCESS;
     BOOLEAN recfg_needed = FALSE;
     UINT8 codec_cfg_status = A2D_SUCCESS;
+    UINT8 sep_info_idx = 0;
     UNUSED(seid);
     UNUSED(addr);
 
@@ -740,6 +741,9 @@ void bta_av_co_audio_setconfig(tBTA_AV_HNDL hndl, tBTA_AV_CODEC codec_type,
     if (p_peer->opened) {
         APPL_TRACE_ERROR("bta_av_co_audio_setconfig peer already in use");
     }
+
+    /* Save peer SEP information in case we did not get its capabilities yet */
+    bta_av_co_audio_getconfig(hndl, codec_type, p_codec_info, &sep_info_idx, seid, &num_protect, p_protect_info);
 
 #if defined(BTA_AV_CO_CP_SCMS_T) && (BTA_AV_CO_CP_SCMS_T == TRUE)
     if (num_protect != 0) {
